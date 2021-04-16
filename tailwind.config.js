@@ -1,5 +1,9 @@
 module.exports = {
-  // mode: 'jit',
-  purge: { enabled: false }
-  
+  mode: 'jit',
+  purge: [
+    './src/*.html',
+    './src/*.js',
+  ],
+  theme: {},
+
 }
