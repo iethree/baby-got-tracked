@@ -1,0 +1,21 @@
+{
+  "name": "baby-got-tracked",
+  "version": "0.1.0",
+  "description": "track your baby's bodily functions!",
+  "main": "index.js",
+  "scripts": {
+    "css:watch": "npx postcss ./src/bgt.css -o ./src/css/bgt.bundle.css -w",
+    "css:build": "npx postcss ./src/bgt.css -o ./src/css/bgt.bundle.css"
+  },
+  "author": "RPL",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^2.1.1"
+  },
+  "devDependencies": {
+    "postcss-cli": "^8.3.1"
+  }
+}

@@ -1,0 +1,17 @@
+@import "tailwindcss/base";
+
+body {
+  @apply bg-gray-800 text-gray-200 p-5;
+}
+
+.button {
+  @apply rounded-sm px-3 py-2 hover:shadow-lg text-white bg-gray-700;
+}
+
+.button.blue {
+  @apply bg-blue-800 text-blue-100;
+}
+
+.button.green {
+  @apply bg-green-800 text-green-100;
+}
