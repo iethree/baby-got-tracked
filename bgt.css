@@ -1,0 +1,100 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  @apply bg-gray-800 text-gray-200 p-5 shadow-lg;
+}
+
+button:focus{
+  outline: none;
+}
+
+.button {
+  @apply rounded-sm px-3 py-2 hover:bg-gray-600 text-gray-100 bg-gray-700;
+  outline: none;
+
+  &.blue {
+    @apply bg-blue-900 text-blue-100 hover:bg-blue-800;
+  }
+
+  &.green {
+    @apply bg-green-900 text-green-100 hover:bg-green-800;
+  }
+
+  &.large {
+    @apply text-2xl;
+  }
+}
+
+tr.selectable-row {
+  @apply hover:cursor-pointer hover:bg-gray-500;
+}
+
+table.striped{
+  tr:nth-child(even) {
+    @apply bg-gray-600 !important;
+  }
+}
+
+.modal-backdrop{
+	@apply fixed top-0 left-0  p-2 h-full w-full z-50 flex justify-center items-center;
+	background-color: hsla(0,0%,0%, 0.8);
+
+	.modal-body{
+		@apply z-30 bg-gray-600 text-gray-200 p-5 relative rounded;
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+  
+	&.hidden{
+		display: none;
+	}
+}
+
+
+input[type="text"], input[type="email"], input[type="search"], input[type="datetime-local"]{
+  @apply appearance-none block w-full bg-gray-700 rounded py-3 px-4 mb-1 leading-tight;
+  &:focus{
+     @apply outline-none;
+  }
+  &.small{
+     @apply text-sm py-2 px-2;
+  }
+}
+
+.input-group{
+  @apply flex flex-wrap mb-1 items-center px-2 rounded-sm;
+  label{
+     @apply tracking-wide text-gray-200 text-sm font-bold px-1 block;
+  }
+  &.hidden{
+     display: none;
+  }
+}
+
+select{
+	appearance: none;
+	cursor: pointer;
+   @apply w-full p-2 bg-gray-700 border rounded block outline-none border-none;
+   &:focus{
+      @apply outline-none;
+   }
+   &.small{
+      @apply text-sm;
+   }
+} 
+
+select:hover{
+	@apply border-gray-600;
+}
+
+textarea{
+   @apply rounded;
+   &:hover{
+      @apply border-gray-600;
+   }
+   &:focus{
+      @apply outline-none border;
+   }
+}
