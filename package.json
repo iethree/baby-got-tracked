@@ -4,7 +4,7 @@
   "description": "track your baby's bodily functions!",
   "main": "index.js",
   "scripts": {
-    "css:watch": "TAILWIND_MODE=watch NNODE_ENV=development postcss .bgt.css -o .bgt.bundle.css -w --verbose",
+    "css:watch": "TAILWIND_MODE=watch NODE_ENV=development postcss .bgt.css -o .bgt.bundle.css -w --verbose",
     "css:build": "TAILWIND_MODE=build NNODE_ENV=production npx postcss ./bgt.css -o .bgt.bundle.css --verbose"
   },
   "author": "RPL",
