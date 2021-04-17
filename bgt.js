@@ -55,6 +55,13 @@ function drawRecords() {
   ` : '<div class="p-10">No Records</div>';
 
   document.getElementById('data-table').innerHTML = table;
+  // animate first element
+  setTimeout(
+    ()=>{
+      document.querySelectorAll('tr.scale-0').forEach(el=>el.classList.remove('scale-0'));
+      document.querySelectorAll('tr.-translate-y-4').forEach(el=>el.classList.remove('-translate-y-4'));
+
+    }, 10);
   drawTimeSinceLastEvent();
 }
 
@@ -63,11 +70,18 @@ function drawRecord(record, index) {
 
   let separator = '';
   if (index === 0 || dayjs(records[index-1].time).format('YYYYMMDD') != dayjs(record.time).format('YYYYMMDD')) {
-    separator = `</table><table class="striped w-full text-center"><tr><td colspan="2" class="bg-gray-700 pt-3 pb-1 text-sm text-gray-500">${dayjs(record.time).format('dddd MMMM D')}</td></tr>`
+    separator = `</table><table class="striped w-full text-center">
+      <tr>
+        <td colspan="2" class="bg-gray-700 pt-3 pb-1 text-sm text-gray-500">${dayjs(record.time).format('dddd MMMM D')}
+        </td>
+      </tr>`;
   }
 
   return `${separator}
-  <tr data-id="${record.id}" class="selectable-row mb-2 text-lg" onclick="editModal(${index})">
+  <tr data-id="${record.id}" 
+    class="selectable-row mb-2 text-lg transition-all transition transform origin-bottom transform ${index === 0 ? 'scale-0' : '-translate-y-4'}" 
+    onclick="editModal(${index})"
+  >
     <td class="px-5">${icons[record.type]}</td>
     <td>${dayjs(record.time).format(display_format)}</td>
   </tr>`;
