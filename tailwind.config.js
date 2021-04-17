@@ -1,8 +1,8 @@
 module.exports = {
   mode: 'jit',
   purge: [
-    './src/*.html',
-    './src/*.js',
+    'index.html',
+    'bgt.js',
   ],
   theme: {},
 

@@ -1,6 +1,6 @@
 // js
 let records = [];
-const display_format = "MMM D h:mm a";
+const display_format = "h:mm a";
 const icons = {
   'left': `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
@@ -16,6 +16,9 @@ const icons = {
 
 load();
 drawRecords();
+updateTime();
+setInterval(updateTime, 1000 * 5);
+
 
 document.querySelectorAll('button').forEach(el=>el.addEventListener('click', record))
 
@@ -47,7 +50,6 @@ function load() {
 function drawRecords() {
   const table = records?.length
     ? `
-    <table class="striped w-full text-center">
       ${records.map(drawRecord).join('')}
     </table>
   ` : '<div class="p-10">No Records</div>';
@@ -59,7 +61,12 @@ function drawRecords() {
 function drawRecord(record, index) {
   if(!record?.type || !record?.time) return '';
 
-  return `
+  let separator = '';
+  if (index === 0 || dayjs(records[index-1].time).format('YYYYMMDD') != dayjs(record.time).format('YYYYMMDD')) {
+    separator = `</table><table class="striped w-full text-center"><tr><td colspan="2" class="bg-gray-700 pt-3 pb-1 text-sm text-gray-500">${dayjs(record.time).format('dddd MMMM D')}</td></tr>`
+  }
+
+  return `${separator}
   <tr data-id="${record.id}" class="selectable-row mb-2 text-lg" onclick="editModal(${index})">
     <td class="px-5">${icons[record.type]}</td>
     <td>${dayjs(record.time).format(display_format)}</td>
@@ -91,7 +98,6 @@ function updateRecordFromGui(index){
     editRecord(records[index].id, type, date);
     hideModal();
   }
-
 }
 
 function editRecord(id, type, date) {
@@ -112,9 +118,8 @@ function deleteRecord(id) {
   records.splice(toDelete, 1);
   saveRecords();
   drawRecords();
+  hideModal();
 }
-
-
 
 function editModal(index) {
   const record = records[index];
@@ -138,8 +143,12 @@ function editModal(index) {
       </div>
       <div class="mt-5 flex justify-between">
         <button class="button" onclick="hideModal()">cancel</button>
+        <button class="button red" onclick="deleteRecord('${record.id}')">delete</button>
         <button class="button green" onclick="updateRecordFromGui(${index})">save</button>
       </div>
   `);
 }
 
+function updateTime(){
+  document.getElementById('current-time').innerHTML = dayjs().format('ddd MMMM D @ h:mm a')
+}

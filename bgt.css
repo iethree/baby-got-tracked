@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 body {
-  @apply bg-gray-800 text-gray-200 p-5 shadow-lg;
+  @apply bg-gray-800 text-gray-200 shadow-lg;
 }
 
 button:focus{
@@ -12,6 +12,7 @@ button:focus{
 
 .button {
   @apply rounded-sm px-3 py-2 hover:bg-gray-600 text-gray-100 bg-gray-700;
+  flex-basis: 0;
   outline: none;
 
   &.blue {
@@ -20,6 +21,10 @@ button:focus{
 
   &.green {
     @apply bg-green-900 text-green-100 hover:bg-green-800;
+  }
+
+  &.red {
+    @apply bg-red-900 text-red-100 hover:bg-red-800;
   }
 
   &.large {
@@ -42,7 +47,7 @@ table.striped{
 	background-color: hsla(0,0%,0%, 0.8);
 
 	.modal-body{
-		@apply z-30 bg-gray-600 text-gray-200 p-5 relative rounded;
+		@apply z-30 bg-gray-600 text-gray-200 p-5 md:relative md:rounded rounded-t fixed bottom-0;
 		max-height: 80vh;
 		overflow-y: auto;
 	}
@@ -50,6 +55,10 @@ table.striped{
 	&.hidden{
 		display: none;
 	}
+}
+
+.box-shadow {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 
