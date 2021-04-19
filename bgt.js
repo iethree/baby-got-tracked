@@ -70,19 +70,26 @@ function load() {
 }
 
 
-function switchMode(e) {
+function switchMode() {
   mode = mode === 'summary' ? 'records' : 'summary';
   localStorage.setItem('mode', mode);
+  draw(mode);
+  // animate 
+  setTimeout(
+    ()=>{
+      document.querySelectorAll('.scale-0').forEach(el=>el.classList.remove('scale-0'));
+      document.querySelectorAll('tr.-translate-y-4').forEach(el=>el.classList.remove('-translate-y-4'));
+    }, 10);
+  drawTimeSinceLastEvent();
+}
 
+function draw(mode) {
   if (mode === 'summary') {
     document.getElementById('mode-switch').classList.remove('text-gray-700');
   } else {
     document.getElementById('mode-switch').classList.add('text-gray-700');
   }
-  draw(mode);
-}
 
-function draw(mode) {
   mode === 'summary' ? drawSummary() : drawRecords();
 }
 
@@ -94,14 +101,7 @@ function drawRecords() {
   ` : '<div class="p-10">No Records</div>';
 
   document.getElementById('data-table').innerHTML = table;
-  // animate first element
-  setTimeout(
-    ()=>{
-      document.querySelectorAll('tr.scale-0').forEach(el=>el.classList.remove('scale-0'));
-      document.querySelectorAll('tr.-translate-y-4').forEach(el=>el.classList.remove('-translate-y-4'));
-
-    }, 10);
-  drawTimeSinceLastEvent();
+  
 }
 
 function drawSummary() {
@@ -109,7 +109,9 @@ function drawSummary() {
   const dates = Object.keys(days).sort().reverse();
 
   const table = dates?.length
-    ? `<table class="striped w-full text-center text-lg">${dates.map(d=>drawStats(d, days[d])).join('')}</table>`
+    ? `<table class="striped w-full text-center text-lg transition transform origin-bottom">
+      ${dates.map(d=>drawStats(d, days[d])).join('')}
+    </table>`
     : '<div class="p-10">No Records</div>';
 
   document.getElementById('data-table').innerHTML = table;
