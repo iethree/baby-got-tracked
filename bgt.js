@@ -77,7 +77,7 @@ function switchMode() {
   // animate 
   setTimeout(
     ()=>{
-      document.querySelectorAll('.scale-0').forEach(el=>el.classList.remove('scale-0'));
+      document.querySelectorAll('tr.scale-0').forEach(el=>el.classList.remove('scale-0'));
       document.querySelectorAll('tr.-translate-y-4').forEach(el=>el.classList.remove('-translate-y-4'));
     }, 10);
   drawTimeSinceLastEvent();
