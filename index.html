@@ -16,25 +16,36 @@
     <link rel="stylesheet" href="bgt.bundle.css">
   </head>
   <body class="text-center">
-      <div id="modal-backdrop" class="modal-backdrop relative hidden transition-opacity duration-250">
-        <div class="modal-body p-3 transition-opacity">
-        </div>
+    <div id="modal-backdrop" class="modal-backdrop relative hidden transition-opacity duration-250">
+      <div class="modal-body p-3 transition-opacity">
+      </div>
     </div>
     <div class="max-w-sm flex flex-col justify-between h-screen p-5 mx-auto">
       <div id="title">
+        <button id="mode-switch" class="fixed top-0 right-0 text-gray-700 p-3" title="show stats">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm9 4a1 1 0 10-2 0v6a1 1 0 102 0V7zm-3 2a1 1 0 10-2 0v4a1 1 0 102 0V9zm-3 3a1 1 0 10-2 0v1a1 1 0 102 0v-1z" clip-rule="evenodd" />
+          </svg>
+        </button>
         <h1 class="text-2xl font-bold">Baby Tracker</h1>
         <div id="current-time" class="text-sm text-gray-500 mb-5"></div>
         <div id="data-table" class="overflow-y-scroll bg-gray-700 max-h-80 rounded-md box-shadow my-2 w-full"></div>
         <div id="time-since" class="my-3 text-sm text-gray-500"></div>
       </div>
+
+      <button></button>
       
       <div id="actions" class="my-5">
         <div class="flex">
           <button data-type="poop" class="button flex-grow mr-1"> 💩  poop</button>
           <button data-type="pee" class="button flex-grow ml-1">
-            pee <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clip-rule="evenodd" />
-            </svg>
+            pee <span class="text-yellow-500"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              class="w-4 h-4 inline" viewBox="0 0 572.8 572.801" style="enable-background:new 0 0 572.8 572.801;"
+              fill="currentColor"
+              xml:space="preserve">
+            <path d="M520.25,353.6c0,125-100.5,219.201-233.8,219.201S52.55,478.6,52.55,353.6c0-115.3,164.7-301.5,197.7-337.7
+               c9.3-10.2,22.4-15.9,36.2-15.9s26.9,5.8,36.2,15.9C355.55,52.1,520.25,238.4,520.25,353.6z"/>
+            </svg> </span>
           </button>
         </div>
 

@@ -560,6 +560,18 @@ video {
 .relative {
 	position: relative;
 }
+.fixed {
+	position: fixed;
+}
+.top-0 {
+	top: 0px;
+}
+.left-0 {
+	left: 0px;
+}
+.right-0 {
+	right: 0px;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -612,6 +624,9 @@ video {
 .h-7 {
 	height: 1.75rem;
 }
+.h-4 {
+	height: 1rem;
+}
 .max-h-80 {
 	max-height: 20rem;
 }
@@ -623,6 +638,9 @@ video {
 }
 .w-7 {
 	width: 1.75rem;
+}
+.w-4 {
+	width: 1rem;
 }
 .max-w-sm {
 	max-width: 24rem;
@@ -675,6 +693,12 @@ video {
 .p-10 {
 	padding: 2.5rem;
 }
+.p-1 {
+	padding: 0.25rem;
+}
+.p-0 {
+	padding: 0px;
+}
 .px-5 {
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
@@ -719,6 +743,30 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
+.text-yellow-700 {
+	--tw-text-opacity: 1;
+	color: rgba(180, 83, 9, var(--tw-text-opacity));
+}
+.text-yellow-600 {
+	--tw-text-opacity: 1;
+	color: rgba(217, 119, 6, var(--tw-text-opacity));
+}
+.text-yellow-500 {
+	--tw-text-opacity: 1;
+	color: rgba(245, 158, 11, var(--tw-text-opacity));
+}
+.text-gray-600 {
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.text-gray-400 {
+	--tw-text-opacity: 1;
+	color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
+.text-gray-700 {
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
 .transition-opacity {
 	transition-property: opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -733,6 +781,11 @@ video {
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition-transform {
+	transition-property: transform;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
