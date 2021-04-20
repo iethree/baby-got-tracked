@@ -74,12 +74,6 @@ function switchMode() {
   mode = mode === 'summary' ? 'records' : 'summary';
   localStorage.setItem('mode', mode);
   draw(mode);
-  // animate 
-  setTimeout(
-    ()=>{
-      document.querySelectorAll('tr.scale-0').forEach(el=>el.classList.remove('scale-0'));
-      document.querySelectorAll('tr.-translate-y-4').forEach(el=>el.classList.remove('-translate-y-4'));
-    }, 10);
   drawTimeSinceLastEvent();
 }
 
@@ -101,7 +95,15 @@ function drawRecords() {
   ` : '<div class="p-10">No Records</div>';
 
   document.getElementById('data-table').innerHTML = table;
-  
+
+  // animate 
+  setTimeout(
+    ()=>{
+      document.querySelectorAll('tr.scale-0')
+        .forEach(el=>el.classList.remove('scale-0'));
+      document.querySelectorAll('tr.-translate-y-4')
+        .forEach(el=>el.classList.remove('-translate-y-4'));
+    }, 100);
 }
 
 function drawSummary() {
